@@ -61,4 +61,7 @@ O armazenamento pode até ser feito dentro do Bucket S3, mas sua gestão do Data
 
 **HDInsight** para processamento distribuído, com um amplo leque de ferramentas também, como Java e Scala
 
+![Arquitetura de um Data Lake na Google Cloud](./assets/googleCloudDataLake.png)
+<center>**Disponível em:** [https://cloud.google.com/blog/topics/developers-practitioners/architect-your-data-lake-google-cloud-data-fusion-and-composer](https://cloud.google.com/blog/topics/developers-practitioners/architect-your-data-lake-google-cloud-data-fusion-and-composer)</center>
+
 ## Soluções Open Source
