@@ -25,3 +25,8 @@ Deixamos de trabalhar somente com dados estruturados para trabalhar também com 
 
 Os 3 V's: Velocidade, Volume e Variedade
 
+<br>
+
+## Supervisão de Aplicações
+
+É interessante guardar informações de scripts e pipelines - a exemplo de status de ETLs - por meio de logs, erros, tempo de duração, custo do processamento

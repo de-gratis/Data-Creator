@@ -1,13 +1,21 @@
 site_name: Data Creator Documentation
+
 theme: 
   name: material
+
 nav:
   - 'Home': index.md
   - 'Data Engineer': 
     - 'Getting Started': 'Data Engineer/dataEngineer.md'
     - 'Data Lake': 'Data Engineer/dataLake.md'
     - 'Data Warehouse': 'Data Engineer/dataWarehouse.md'
+    - 'Data Mart': 'Data Engineer/dataMart.md'
   - 'Data Scientist': 'Data Scientist/dataScientist.md'
   - 'Data Analyst': 'Data Analyst/dataAnalyst.md'
   - 'Appendices': 'appendices.md'
   - 'References': 'references.md'
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
