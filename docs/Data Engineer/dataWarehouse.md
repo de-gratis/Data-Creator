@@ -1,5 +1,7 @@
 ## Visão Geral
 
+Surgidos no final da década de 80
+
 São CAROS pois trabalham com bases de dados massivas, feitos para queries escaláveis
 
 Diferentes dos Data Lakes, os Data Warehouses são soluções mais controladas, confiáveis e lentas, com os dados bem estruturados pelas modificações do processo de ETL
