@@ -6,6 +6,8 @@ Não é uma tecnologia, não é um protocolo, não é um framework, é somente u
 
 Um repositório único para armazenar todos os formatos de dados, sendo eles estruturados, semi-estruturados e até não-estruturados
 
+Necessário para a finalidade de testar um modelo de ML, descobrir as features do modelo, necessitando dos formatos estarem em formato padrão
+
 Pode ser trabalhado com dados em **batch** ou em **streaming**
 
 - **Batch**: Dados que chegam em tantos períodos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer, portanto, um processo em lote

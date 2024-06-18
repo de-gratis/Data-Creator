@@ -6,7 +6,9 @@ theme:
 nav:
   - 'Home': index.md
   - 'Data Engineer': 
-    - 'Getting Started': 'Data Engineer/dataEngineer.md'
+    - 'Quem é': 'Data Engineer/dataEngineer.md'
+    - 'A etapa de processamento de dados para análise': 'Data Engineer/etlElt.md'
+    - 'Pipelines': 'Data Engineer/pipelines.md'
     - 'Data Lake': 'Data Engineer/dataLake.md'
     - 'Data Warehouse': 'Data Engineer/dataWarehouse.md'
     - 'Data Mart': 'Data Engineer/dataMart.md'

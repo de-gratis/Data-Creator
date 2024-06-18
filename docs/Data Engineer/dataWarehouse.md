@@ -2,9 +2,9 @@
 
 Surgidos no final da década de 80
 
-São CAROS pois trabalham com bases de dados massivas, feitos para queries escaláveis
+São CAROS, LENTOS e COMPLEXOS pois trabalham com bases de dados massivas, feitos para queries escaláveis
 
-Diferentes dos Data Lakes, os Data Warehouses são soluções mais controladas, confiáveis e lentas, com os dados bem estruturados pelas modificações do processo de ETL
+Diferentes dos Data Lakes, os Data Warehouses são soluções mais controladas e confiáveis, com os dados bem estruturados pelas modificações do processo de ETL
 
 Sua principal ideia é reduzir o trabalho manual para que seja facilitado o foco nas pesquisas e consultas, reaproveitando o processamento e assim melhorando a performance para a geração de BI e relatórios. Logo, seus principais usuários são da área de BI, gestores, gerentes 
 
