@@ -7,7 +7,7 @@ Conhecimento da solução de ponta-a-ponta com as data pipelines
 
 Traçar orçamentos, planejamentos, mais efetivos, envolvido na parte de projetos e negócios
 
-Cuida mais da parte de BI/ETL&ELT orientados a BigData
+Cuida mais da parte de BI, ETL e ELT orientados a BigData
 
 Realizar a montagem de ecossistemas como Data Lakes, Warehouses, Lakehouses, etc
 
@@ -30,3 +30,24 @@ Os 3 V's: Velocidade, Volume e Variedade
 ## Supervisão de Aplicações
 
 É interessante guardar informações de scripts e pipelines - a exemplo de status de ETLs - por meio de logs, erros, tempo de duração, custo do processamento
+
+## Pipelines
+
+Definição de ambientes e arquiteturas, como on-premise e cloud ou híbrido
+
+Especificar as tecnologias de armazenamento, como Data Lakes e Data Warehouses
+
+Selecionar as formas de processamento como Streaming ou Clusters
+
+Definir o monitoramento e padrões de segurança e integração com outros sistemas
+
+## Ferramentas de nuvem
+
+- Databricks
+- Confluent
+- Cloudera
+- Horton Works
+- Microsoft Azure
+- Google Cloud Plataform
+- AWS
+- Ecossistema Hadoop

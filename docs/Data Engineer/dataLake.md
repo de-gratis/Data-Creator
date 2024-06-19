@@ -10,9 +10,9 @@ Necessário para a finalidade de testar um modelo de ML, descobrir as features d
 
 Pode ser trabalhado com dados em **batch** ou em **streaming**
 
-- **Batch**: Dados que chegam em tantos períodos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer, portanto, um processo em lote
+- **Batch**: Carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote
 
-- **Streaming**: Dados que chegam em tempo real
+- **Streaming**: Dados que chegam em tempo real, sendo processados por funções de MapReduce para organizar os dados embaralhados
 
 Seu objetivo é entregar rápidos insights, coma menor burocracia possível
 
@@ -20,7 +20,7 @@ O principal usuário é o Cientista de Dados, capaz de tratar e processar os dad
 
 O modelo de schema é definido no momento de leitura, não existindo uma tabela rígida com campos bem determinados
 
-Deve-se ter muito cuidado para não virar um [Data Swamp](), para isso, boas práticas devem ser adotadas, como sistema de controle de acesso, controle de cotas por zona de gerenciamento, como landing zones, process zones, sendo estas, exemplos de uma arquitetura medallion, com os dados brutos entrando na zona Bronze os pré-processados no Prata e o dado final no Ouro, estipulação da periodicidade da ingestão de dados, não armazenar dados inúteis, definição de regras de negócios, diversas fontes de dados com diversas pipelines, com fluidez de dados, garantir os metadados (os dados sobre os dados), defini etc
+Deve-se ter muito cuidado para não virar um [Data Swamp](), para isso, boas práticas devem ser adotadas, como sistema de controle de acesso, controle de cotas por zona de gerenciamento, como landing zones, process zones, sendo estas, exemplos de uma arquitetura medallion ou multihop, com os dados brutos entrando na zona Bronze os pré-processados no Prata e o dado final no Ouro, estipulação da periodicidade da ingestão de dados, não armazenar dados inúteis, definição de regras de negócios, diversas fontes de dados com diversas pipelines, com fluidez de dados, garantir os metadados (os dados sobre os dados), defini etc
 
 <br>
 
@@ -86,9 +86,11 @@ Possui serviço de armazenamento, serviços de pipelines com GC Fusion, Big Quer
 
 Dados gerados **on-premise**
 
-- **On-premise**: São os sistemas, servidores internos de uma empresa, implantações internas da TI que gerenciam toda a infraestrutura, é o local. Por exemplo, você compraria o hardware do servidor e faria a manutenção dele, onde também configuraria e atualizaria os sistemas operacionais nos quais seu software é executado, além de instalar e atualizar todos os complementos e plug-ins necessários, sendo sua implementação e gerenciamento de infraestrutura um tanto quanto complexos
+- **Cloud**: Os serviços estão além do seu computador/servidor local, estão na nuvem, sendo gerenciados ou armazenados em um outro local de talvez uma outra empresa, sendo seu custo a exemplo de hardwares, segurança e backups diminuídos pois essa bronca está com a fornecedora da nuvem, com você pagando somente com o que consome
 
-- **SaaS**: Todas as responsabilidades do de cima passam a ser do prestador do serviço de nuvem, segurança, confidencialidade, manutenção, etc
+- **On-premise**: São os sistemas, servidores internos de uma empresa, implantações internas da TI que gerenciam toda a infraestrutura, é o local. Por exemplo, você compraria o hardware do servidor e faria a manutenção dele, onde também configuraria e atualizaria os sistemas operacionais nos quais seu software é executado, além de instalar e atualizar todos os complementos e plug-ins necessários, gastando também com parte elétrica e refrigeração, sendo sua implementação e gerenciamento de infraestrutura um tanto quanto complexos
+
+- **SaaS Software as a Service**: Todas as responsabilidades do de cima, sendo um software como o nome sugere, passam a ser do prestador do serviço de nuvem, segurança, confidencialidade, manutenção, etc
 
 <!-- Mais em: https://aws.amazon.com/pt/compare/the-difference-between-saas-and-on-premises/ -->
 
