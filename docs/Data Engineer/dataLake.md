@@ -10,9 +10,14 @@ Necessário para a finalidade de testar um modelo de ML, descobrir as features d
 
 Pode ser trabalhado com dados em **batch** ou em **streaming**
 
-- **Batch**: Carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote
+- **Batch**: Grande carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote que é processado tudo de uma vez, exemplo de uso seria a arquitetura Lambda
 
-- **Streaming**: Dados que chegam em tempo real, sendo processados por funções de MapReduce para organizar os dados embaralhados
+[![Arquitetura Lambda](./assets/lambdaArchitecture.png)](https://massivetechinterview.blogspot.com/2015/10/lambda-architecture.html)
+
+- **Streaming**: Pequenas porções de dados que chegam em tempo real, sendo processados por funções de MapReduce para organizar os dados embaralhados, exemplo desse uso seria a arquitetura Kappa e também a Lambda
+
+[![Arquitetura Kappa](./assets/kappaArchitecture.webp)](https://medium.com/@darioajr/understanding-kappa-architecture-and-kafka-empowering-real-time-data-processing-05229a3fe36f)
+
 
 Seu objetivo é entregar rápidos insights, coma menor burocracia possível
 

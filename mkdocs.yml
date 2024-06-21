@@ -7,7 +7,8 @@ nav:
   - 'Home': index.md
   - 'Data Engineer': 
     - 'Quem é': 'Data Engineer/dataEngineer.md'
-    - 'A etapa de processamento de dados para análise': 'Data Engineer/etlElt.md'
+    - 'As etapas do processamento dos dados': 'Data Engineer/etlElt.md'
+    - 'Apache Spark': 'Data Engineer/apacheSpark.md'
     - 'Pipelines': 'Data Engineer/pipelines.md'
     - 'Data Lake': 'Data Engineer/dataLake.md'
     - 'Data Warehouse': 'Data Engineer/dataWarehouse.md'
