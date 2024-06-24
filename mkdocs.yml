@@ -8,6 +8,7 @@ nav:
   - 'Data Engineer': 
     - 'Quem é': 'Data Engineer/dataEngineer.md'
     - 'As etapas do processamento dos dados': 'Data Engineer/etlElt.md'
+    - 'Databricks': 'Data Engineer/databricks.md'
     - 'Apache Spark': 'Data Engineer/apacheSpark.md'
     - 'Pipelines': 'Data Engineer/pipelines.md'
     - 'Data Lake': 'Data Engineer/dataLake.md'
