@@ -10,7 +10,7 @@ Necessário para a finalidade de testar um modelo de ML, descobrir as features d
 
 Pode ser trabalhado com dados em **batch** ou em **streaming**
 
-- **Batch**: Grande carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote que é processado tudo de uma vez, exemplo de uso seria a arquitetura Lambda
+- **Batch**: Grande carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote que é processado tudo de uma vez, exemplo de uso seria a arquitetura Lambda a seguir
 
 [![Arquitetura Lambda](./assets/lambdaArchitecture.png)](https://massivetechinterview.blogspot.com/2015/10/lambda-architecture.html)
 
@@ -25,7 +25,11 @@ O principal usuário é o Cientista de Dados, capaz de tratar e processar os dad
 
 O modelo de schema é definido no momento de leitura, não existindo uma tabela rígida com campos bem determinados
 
-Deve-se ter muito cuidado para não virar um [Data Swamp](), para isso, boas práticas devem ser adotadas, como sistema de controle de acesso, controle de cotas por zona de gerenciamento, como landing zones, process zones, sendo estas, exemplos de uma arquitetura medallion ou multihop, com os dados brutos entrando na zona Bronze os pré-processados no Prata e o dado final no Ouro, estipulação da periodicidade da ingestão de dados, não armazenar dados inúteis, definição de regras de negócios, diversas fontes de dados com diversas pipelines, com fluidez de dados, garantir os metadados (os dados sobre os dados), defini etc
+Deve-se ter muito cuidado para não virar um [Data Swamp](), para isso, boas práticas devem ser adotadas, como sistema de controle de acesso, controle de cotas por zona de gerenciamento, como landing zones, process zones, sendo estas, exemplos de uma arquitetura medallion ou multihop, com os dados brutos entrando na zona Bronze os pré-processados no Prata e o dado final no Ouro, estipulação da periodicidade da ingestão de dados, não armazenar dados inúteis, definição de regras de negócios, diversas fontes de dados com diversas pipelines, com fluidez de dados, garantir os metadados (os dados sobre os dados) e etc
+
+Para evitar uma bagunça total dos datasets, é extremamente importante ter a divisão de zonas dentro do Data Lake, cada uma com um propósito (landing -> process - curated)
+
+[![Zonas do Data Lake](./assets/dataLakeZones.png)](https://dzone.com/articles/data-lake-governance-best-practices)
 
 <br>
 
