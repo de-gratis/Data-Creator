@@ -10,7 +10,9 @@ Usando somente uma máquina, você se limita aos recursos computacionais, o pode
 
 [![Arquitetura Spark](./assets/sparkArchitecture.webp)](https://medium.com/thefreshwrites/introduction-to-spark-architecture-fadc9829d3f5)
 
-### Spark vs outras ferramentas
+<br>
+
+## Spark vs outras ferramentas
 
 Diferente do Hadoop, o Spark não trabalha fazendo o processamento em disco, mas sim em memória, aumetando ainda mais o tempo de processamento
 
@@ -19,6 +21,22 @@ Mas o Hadoop ainda é bastante usado por ter seu file system compartilhado com o
 [![Hadoop vs Spark](./assets/hadoopVsSpark.png)](https://phoenixnap.com/kb/hadoop-vs-spark)
 
 Os dados processados pelo Pandas, os dataframes, ficam alocados em uma memória standalone, diferete do Spark que o faz na memória de várias máquinas, tanto em leitura, quanto em escrita
+
+<br>
+
+## A dupla Apache Pyspark e **Parquet**
+
+Formato de dados desenvolvido de forma otimizada a trabalhar com BigData, armazenando seus dados em formato de coluna, os comprimindo, codificando, e criando partições físicas, desenvolvido pela Apache
+
+[![Apache Parquet](./assets/apacheParquet.webp)](https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705)
+
+A consulta é então otimizada pois os tipos de dados estão próximos, e não embaralhados, além de seu armazenamento ser drasticamente reduzido por substituição de redundância, ganhando espaço em disco e tempo de processamento
+
+[![Apache Parquet Reduction](./assets/parquetReduction.webp)](https://naderasadi.medium.com/what-is-apache-parquet-94f73d645588)
+
+Essa diferença de performance é imperativa, ainda mais em cloud que o custo é por tempo de processamento, ciclo de CPU e armazenamento em disco
+
+[![CSV vs Parquet](./assets/csvVsParquet.png)](https://www.linkedin.com/pulse/difference-between-parquet-csv-emad-yowakim/)
 
 <br>
 
