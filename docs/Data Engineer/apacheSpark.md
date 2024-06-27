@@ -93,3 +93,26 @@ df = spark.read.format(file_type) \
 É possível acompanhar o processo do cluster Spark na aba **Compute -> Spark UI**
 
 Qualquer comando do Spark, mesmo feito em Python, é considerado um código SQL, logo, uma query
+
+Para traduzir o dataframe, seja formato xlsc ou csv, para o formato parquet, faz-se da seguinte forma (pode demorar um pouco devido a escrita dos metadados):
+
+```py linenums="1"
+df.write.format("parquet")\
+.mode("overwrite")\
+.save("/FileStore/tables/processing/df-parquet-file.parquet")
+```
+
+O modo `overwrite` identifica caso haja outro arquivo parquet com o mesmo nome e o subscreve forçadamente
+
+Para fazer a leitura:
+
+```py linenums="1"
+df_parquet = spark.read.format("parquet")\
+.load("/FileStore/tables/processing/df-parquet-file.parquet")
+```
+
+<br>
+
+## O paradigma de Performance Tuning no Spark
+
+someday...
