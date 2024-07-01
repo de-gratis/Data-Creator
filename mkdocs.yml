@@ -22,6 +22,7 @@ nav:
   - Data Scientist: 
     - Quem é?: Data Scientist/dataScientist.md
     - Inteligência Artificial: Data Scientist/artificialInteligence.md
+    - Generative AI: Data Scientist/generativeAI.md
   - Data Analyst: Data Analyst/dataAnalyst.md
   - Appendices: appendices.md
   - References: references.md
