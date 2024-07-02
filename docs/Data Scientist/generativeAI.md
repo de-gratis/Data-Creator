@@ -138,6 +138,36 @@ Não devendo portanto, ser dado ao usuário acesso aos inputs do modelo diretame
 
 <br>
 
+#### Treinamento
+
+Somente prompting pode ser ineficiente quando os dados de treinamento existem ou quando uma adaptação de domínio é necessária
+
+- **Fine-tuning FT**: Como todas as LLMs eram treinadas em 2019, mudando todos os parâmetros de um modelo pré-treinado em um dataset rotulado, sendo muito custoso um fine-tuning completo
+
+- **Param. Efficient FT**: Isolam-se um pequeno set dos parâmetros para o treino ou adiciona-se um mesmo tanto, como o Low Rank Adaptation LORA
+
+- **Soft prompting**: Adição de parâmetros por meio do prompt por meio de "palavras" bem especializadas, sendo gerados de forma randômica e sendo iterativamente afetado pelo fine-tuning no processo de treino
+
+- **(cont.) pre-training**: Não precisa de dados rotulados e só recebe dado atrás de dado
+
+<br>
+
 ### Como as LLMs geram texto usando estas distribuições?
 
 Decoding é o termo técnico para geração de texto de uma LLM, se utilizando do vocabulário de todas as diversas formas possíveis, como os documentos 
+
+End of Sentence EOS: Token de final da frase
+
+- Greedy decoding: Retorna o vocabulário com a maior probabilidade, o maior score, típico em modelos de temperatura baixa
+
+Mas existem outros tipos de decodings não-determinísticos, com amostragens aleatórias
+
+A temperatura do modelo dita sua "imaginação", a distribuição do vocabulário, onde quando a mesma é diminuida atinge-se o pico da distribuição mais em torno do vocabulário de maior probabilidade com muita discrepância entre elas, e quando aumentada, a probabilidade dos vocabulários ficam mais constantes, mais dentro da média
+
+Basicamente, quando maior a temperatura, mais criativo o modelo é, com a exposição de palavras mais "raras" e maior imprevisibilidade
+
+Mesmo assim, o vocabulário com maior probabilidade continuará o sendo e o mesmo acontecerá para o vocabulário de menor probabilidade
+
+- Nucleus-sampling: Governa precisamente qual parte da distribuição das palavras você pode extrair amostras
+
+- Beam search: Gera múltiplas sequências semelhantes simultaneamente e refina continuamente as sequências com baixa probabilidade
