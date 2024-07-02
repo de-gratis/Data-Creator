@@ -52,7 +52,7 @@ Até adicionar um espaço em branco pode alterar excepcionalmente a distribuiç�
 
 - **In-context learning**
 
-Não tem um treinamento onde os parâmetros do modelo mudam, mas o mesmo aprende a realizar uma tarefa com base apenas no contexto fornecido para guiar a resposta
+Não tem um treinamento onde os parâmetros do modelo mudam, mas o mesmo é condicionado a aprender a realizar uma tarefa com base apenas no contexto fornecido para guiar a resposta
 
 ```
 Continue a história seguindo o contexto abaixo:
@@ -142,11 +142,11 @@ Não devendo portanto, ser dado ao usuário acesso aos inputs do modelo diretame
 
 Somente prompting pode ser ineficiente quando os dados de treinamento existem ou quando uma adaptação de domínio é necessária
 
-- **Fine-tuning FT**: Como todas as LLMs eram treinadas em 2019, mudando todos os parâmetros de um modelo pré-treinado em um dataset rotulado, sendo muito custoso um fine-tuning completo
+- **Fine-tuning FT**: Como todas as LLMs eram treinadas em 2019, mudando todos os parâmetros de um modelo pré-treinado em um dataset rotulado e específico da tarefa, sendo muito custoso um fine-tuning completo
 
-- **Param. Efficient FT**: Isolam-se um pequeno set dos parâmetros para o treino ou adiciona-se um mesmo tanto, como o Low Rank Adaptation LORA
+- **Param. Efficient FT**: Isolam-se um pequeno set dos parâmetros para o treino ou adiciona-se um mesmo tanto, como o Low Rank Adaptation LORA, também com dados rotulados e específicos do problema
 
-- **Soft prompting**: Adição de parâmetros por meio do prompt por meio de "palavras" bem especializadas, sendo gerados de forma randômica e sendo iterativamente afetado pelo fine-tuning no processo de treino
+- **Soft prompting**: Adição de parâmetros por meio do prompt de "palavras" bem especializadas, sendo gerados de forma randômica e sendo iterativamente afetado pelo fine-tuning no processo de treino
 
 - **(cont.) pre-training**: Não precisa de dados rotulados e só recebe dado atrás de dado
 
@@ -158,7 +158,7 @@ Decoding é o termo técnico para geração de texto de uma LLM, se utilizando d
 
 End of Sentence EOS: Token de final da frase
 
-- Greedy decoding: Retorna o vocabulário com a maior probabilidade, o maior score, típico em modelos de temperatura baixa
+- Greedy **decoding**: Retorna o vocabulário com a maior probabilidade, o maior score, típico em modelos de temperatura baixa
 
 Mas existem outros tipos de decodings não-determinísticos, com amostragens aleatórias
 
@@ -168,6 +168,42 @@ Basicamente, quando maior a temperatura, mais criativo o modelo é, com a exposi
 
 Mesmo assim, o vocabulário com maior probabilidade continuará o sendo e o mesmo acontecerá para o vocabulário de menor probabilidade
 
-- Nucleus-sampling: Governa precisamente qual parte da distribuição das palavras você pode extrair amostras
+- **Nucleus-sampling**: Governa precisamente qual parte da distribuição das palavras você pode extrair amostras
 
-- Beam search: Gera múltiplas sequências semelhantes simultaneamente e refina continuamente as sequências com baixa probabilidade
+- **Beam search**: Gera múltiplas sequências semelhantes simultaneamente e refina continuamente as sequências com baixa probabilidade
+
+<br>
+
+#### Alucinação
+
+Quando o texto gerado pela IA não está baseado nos dados de treino ou no que foi apresentado no input, textos sem sentido ou factualmente incorretos são considerados alucinações
+
+Deve-se ter cuidado pois muitas das vezes estas alucinações são sucintas, podendo muito bem passarem desapercebidas. É preocupante também pois dificulta ao usuário verificar a veracidade da informação facilmente
+
+Sistemas RAG alucinam menos que sistemas zero-shots (claro né), podendo até serem usados em respostas a perguntas de vários documentos, checagem de fatos e diálogo
+
+Os sistemas RAG provém um mecanismo não-paramétrico, no sentido de não ser necessário ajustar o modelo em si, somente adicionais mais documentos
+
+Natural Language Inference NLI é a tarefa de determinar se a “hipótese” dada segue (entailment) ou não (contradiction) logicamente a sua “premissa”, ou se ela se mantém neutra (neutral). Basicamente, é preciso entender se a hipótese é verdadeira, enquanto a premissa é o seu único conhecimento sobre o assunto.
+
+Code models: São LLMs treinadas em cima de códigos, comentários e documentações
+
+Gerar código pode ser, por vezes, mais fácil que gerar textos devido a sua estrutura e menos ambiguidade em relação à linguagem natural
+
+Multi-modal: Treinados em imagens, vídeos, áudios, etc
+
+Language agents: Modelos usados para decisão sequencial de cenários, como jogar xadrex e achar algo na internet. Um exemplo disso é o ReAct, mandando o modelo comunicar o que está "pensando", resumos de seu objetivo, quais passos já completou e quais restam completar
+
+Toolformer: Strings são substituídas por chamadas a APIs para retornas certos resultados para expandir a capacidade das LLMs, um exemplo seria a IA expressar a necessidade de uso de uma calculadora e fazer a chamada a API de uma
+
+Bootstrapped reasoning: Muito bem usados em questões de planejamento, capazes de resolver tarefas altamente complexas e tarefas que não estão acostumados
+
+## OCI Generative AI Service
+
+Um serviço com várias formas de customização de LLMs disponíveis via API, sem a necessidade de gerenciar nenhuma infraestrutura
+
+Usa o T-few fine-tuning para rápidas e eficientes customizações de modelos
+
+Possui também clustersde IA dedicados, recursos de computação em GPU para o fine-tuning e cargas de trabalhos de inferência, com uma rede de clusters RDMA usados para conectar as GPUs
+
+As GPUs de um trabalho são isoladas das de outros trabalhos do usuário
