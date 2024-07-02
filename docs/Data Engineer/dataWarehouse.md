@@ -4,7 +4,9 @@ Surgidos no final da década de 80
 
 São CAROS, LENTOS e COMPLEXOS pois trabalham com bases de dados massivas, feitos para queries escaláveis
 
-Diferentes dos Data Lakes, os Data Warehouses são soluções mais controladas e confiáveis, com os dados bem estruturados pelas modificações do processo de ETL
+No levantamento de requisitos da modelagem de um DW, já é definido antecipadamente qual assunto o DW vai tratar
+
+Diferentes dos Data Lakes, os Data Warehouses são soluções mais controladas e confiáveis, uma "única fonte de verdade de dados", com os mesmos sendo bem estruturados pelas modificações do processo de ETL e não voláteis
 
 Sua principal ideia é reduzir o trabalho manual para que seja facilitado o foco nas pesquisas e consultas, reaproveitando o processamento e assim melhorando a performance para a geração de BI e relatórios. Logo, seus principais usuários são da área de BI, gestores, gerentes 
 
@@ -12,7 +14,7 @@ Muito utilizado devido a suas transações **ACID**
 
 - **ACID Atomicity, Consistency, Isolation, Durability**: Uma garantia de que a transação nos bancos de dados foi bem feita, co uma transação não interferindo na outra. Ela começa e finaliza, não podendo ficar no meio (mandei 100 reais e chegou 50?)
 
-Seus schemas são feitos no momento de escrita, sendo necessário o conhecimento das tabelas
+Seus schemas são feitos no momento de escrita definidos com antecedência, sendo necessário o conhecimento das tabelas, para otimizar as consultas SQL
 
 Todos os conceitos de uma DW são válidos para a construção de uma arquitetura mais moderna como um Data Lakehouse
 
