@@ -8,6 +8,8 @@ Mesmo assim, o termo LLM ainda é usado para modelos de linguagem não considera
 
 É um modelo de texto probabilístico, computando uma distribuição em um dado vocabulário, um set de palavras, atibuindo probabilidades de uma palavra aparecer dentro daquele contexto e escopo a partir de buscas vetorizadas
 
+Modelos de lingugagens reconhecem tokens invés de caracteres, podendo os tokens serem uma parte de uma palavra ou ela inteira e até pontuações, com a sua frequência dependendo da complexidade do texto
+
 Sua arquitetura se dá por meio de duas principais vertentes, ambas construídas em **transformers**:
 
 #### Encoders
@@ -162,7 +164,7 @@ End of Sentence EOS: Token de final da frase
 
 Mas existem outros tipos de decodings não-determinísticos, com amostragens aleatórias
 
-A temperatura do modelo dita sua "imaginação", a distribuição do vocabulário, onde quando a mesma é diminuida atinge-se o pico da distribuição mais em torno do vocabulário de maior probabilidade com muita discrepância entre elas, e quando aumentada, a probabilidade dos vocabulários ficam mais constantes, mais dentro da média
+A temperatura do modelo é um hyperparÂmetro que dita sua "imaginação", a distribuição do vocabulário, onde quando a mesma é diminuida atinge-se o pico da distribuição mais em torno do vocabulário de maior probabilidade com muita discrepância entre elas, tornando-se uma IA determinística e, quando aumentada, a probabilidade dos vocabulários ficam mais constantes, mais dentro da média
 
 Basicamente, quando maior a temperatura, mais criativo o modelo é, com a exposição de palavras mais "raras" e maior imprevisibilidade
 
@@ -190,6 +192,8 @@ Code models: São LLMs treinadas em cima de códigos, comentários e documentaç
 
 Gerar código pode ser, por vezes, mais fácil que gerar textos devido a sua estrutura e menos ambiguidade em relação à linguagem natural
 
+Summarization model: Modelos para resumir textos, mais focando em informação, com seus parâmetros podendo ser especificados
+
 Multi-modal: Treinados em imagens, vídeos, áudios, etc
 
 Language agents: Modelos usados para decisão sequencial de cenários, como jogar xadrex e achar algo na internet. Um exemplo disso é o ReAct, mandando o modelo comunicar o que está "pensando", resumos de seu objetivo, quais passos já completou e quais restam completar
@@ -197,6 +201,22 @@ Language agents: Modelos usados para decisão sequencial de cenários, como joga
 Toolformer: Strings são substituídas por chamadas a APIs para retornas certos resultados para expandir a capacidade das LLMs, um exemplo seria a IA expressar a necessidade de uso de uma calculadora e fazer a chamada a API de uma
 
 Bootstrapped reasoning: Muito bem usados em questões de planejamento, capazes de resolver tarefas altamente complexas e tarefas que não estão acostumados
+
+#### Alguns outros parâmetros
+
+- **Máximo de tokens de output**: Limita-se o tamanho da resposta do modelo
+
+- **top k**: Dita a quantidade do tokens com melhores scores
+
+- **Top p**: Mesmo do de cima, mas baseia-se na soma de suas probabilidades
+
+- **Penalidade de presença/frequência**: Limita a frequência de um token no texto gerado
+
+- **Show likelihood**: Determina a possibilidade de um token tem de seguir com o presente token gerado
+
+- **Stop sentence**: Palavra especial usada para finalizar a interação do output do modelo
+
+<br>
 
 ## OCI Generative AI Service
 
@@ -207,3 +227,5 @@ Usa o T-few fine-tuning para rápidas e eficientes customizações de modelos
 Possui também clustersde IA dedicados, recursos de computação em GPU para o fine-tuning e cargas de trabalhos de inferência, com uma rede de clusters RDMA usados para conectar as GPUs
 
 As GPUs de um trabalho são isoladas das de outros trabalhos do usuário
+
+Para o seu código no OCI funcionar, deve-se finalizar a manutenção do arquivo de manutenção adquirindo uma chave de API da Oracle
