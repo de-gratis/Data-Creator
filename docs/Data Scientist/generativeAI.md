@@ -46,7 +46,7 @@ Prompting é alterar o conteúdo ou a estrutura do input, podendo conter instru�
 
 Caso seja adicionado a palavra "pequeno" no input, a probabilidade de corresponder a animais menores aumenta e a de animais maiores diminui, havendo uma mudança na distribuição das palavras do vocabulário
 
-É chamado de **prompt engineering (engenharia de prompt)** de refinar iterativamente o modelo do input para induzir uma distribuição probabilística para uma determinada tarefa (mudar o input de novo e de novo)
+É chamado de **prompt engineering (engenharia de prompt)** o ato de refinar iterativamente o modelo do input para induzir uma distribuição probabilística para uma determinada tarefa (mudar o input de novo e de novo)
 
 Até adicionar um espaço em branco pode alterar excepcionalmente a distribuição do vocabulário de palavras, devido a isso, surgiram algumas estratégias para otimizar, comprovadamente no meio acadêmico e industrial, esse processo de prompting
 
@@ -63,7 +63,7 @@ Continue a história seguindo o contexto abaixo:
 
 - **K-shot prompting**
 
-A letra k se refere ao número de exemplos presentes no prompt
+A letra k se refere ao número de exemplos presentes no prompt, onde **few-shot** refere-se aos poucos exemplos que um modelo pode ter no seu prompt, podendo rapidamente e efetivamente adaptá-lo para novos domínios mesmo com poucos dados
 
 ```
 Traduza de inglês para português conforme os exemplos: 
@@ -204,7 +204,11 @@ Bootstrapped reasoning: Muito bem usados em questões de planejamento, capazes d
 
 #### Alguns outros parâmetros
 
-- **Máximo de tokens de output**: Limita-se o tamanho da resposta do modelo
+- **Length (Máximo de tokens de output)**: Limita-se o tamanho da resposta do modelo
+
+- **Formato**: Dita o tipo de saída do output, como texto normal ou tópicos
+
+- **Extractiveness**: Influencia a quantidade de conteúdo textual que o modelo copia ou parafraseia diretamente do texto de entrada em sua saída
 
 - **top k**: Dita a quantidade do tokens com melhores scores
 
