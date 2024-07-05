@@ -14,13 +14,11 @@ Sua arquitetura se dá por meio de duas principais vertentes, ambas construídas
 
 #### Encoders
 
-Designados para aprender **embeddings**, processo de transfomar uma sequência de palavras em um vetor ou sequência de vetores, sendo então uma representação numérica buscando se adequar à semântica do texto
+Designados para aprender **embeddings**, processo de transfomar uma sequência de palavras em um vetor ou sequência de vetores, sendo então uma representação numérica buscando se adequar à semântica do texto para procurar, classificar e comparar fontes de texto por similaridade semântica
 
 [![Exemplos de vetores embedados](./assets/embeddings.png)](https://brains.dev/2024/token-e-embedding-conceitos-da-ia-e-llms/#:~:text=Palavra%20%22cachorro%22%20como%20Embedding%20tem,dado%20que%20s%C3%A3o%20palavras%20similares.)
 
 Estes modelos de encoder foram primeiro pensados para modelos de classificação ou regressão, mas muito do seu uso atualmente é feito para **semantic search (busca semântica)** ou **vector search in databases (busca vetorizada em bases de dados)**, servindo para, por exemplo, retornar um predaço de um documento similar ao input
-
-Seria então feito o embedding do input e dos documentos para que a similaridade semântica fizesse efeito
 
 <br>
 
