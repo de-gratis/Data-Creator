@@ -19,12 +19,6 @@ nav:
     - Data Warehouse: Data Engineer/dataWarehouse.md
     - Data Lakehouse: Data Engineer/dataLakehouse.md
     - Data Mart: Data Engineer/dataMart.md
-  - Data Scientist: 
-    - Quem é?: Data Scientist/dataScientist.md
-    - Inteligência Artificial: Data Scientist/artificialInteligence.md
-    - Machine Learning: Data Scientist/machineLearning.md
-    - Generative AI: Data Scientist/generativeAI.md
-  - Data Analyst: Data Analyst/dataAnalyst.md
   - Appendices: appendices.md
   - References: references.md
 
