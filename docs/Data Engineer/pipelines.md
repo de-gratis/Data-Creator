@@ -2,7 +2,7 @@ Um pipeline de dados, ou datapipeline, é uma série de etapas de processamento 
 
 A maioria dos pipelines possuem três elementos principais: a origem, uma ou mais etapas de processamento e o destino. Mas os pipelines de dados podem ser arquitetados de várias maneiras diferentes e tudo vai depender do caso de uso por meio das **DAGs**, **orquestração de pipeline** e **VMs** 
 
-- **Directed Acyclic Graph DAG**: Define as regras do que será efetivamente orquestrado no seu pipeline, refletindo suas relações e dependências e, como o próprio nome sugere, é direto sem loops
+- **Directed Acyclic Graph DAG (Gráfico Acíclico Direcionado)**: Define as regras do que será efetivamente orquestrado no seu pipeline, refletindo suas relações e dependências, sendo sua sigla: Grafos para a conexão dos nós; Direcionado indicando que o fluxo de trabalho se dá apenas em uma direção; e Acíclico: significa que a execução não entrará em um laço de repetição
 
 - **Virtual Machine VM**: 
 
@@ -16,12 +16,24 @@ Ferramenta open source, escrita em Python, criada pelo Airbnb em 2014 e atualmen
 
 Contém algumas bibliotecas que só funcionam no Linux. Dessa forma, soluções alternativas para usuários(as) de Windows, como máquinas virtuais ou Docker, são necessárias para uso totalmente funcional dessa ferramenta
 
-Um **Task (tarefa)** é a unidade mais básica de um DAG, usada para implementar uma determinada lógica na pipeline, são definidos pela instanciação de um **Operator**
+- **Task (tarefa)**: Unidade mais básica de um DAG, usada para implementar uma determinada lógica na pipeline, são definidos pela instanciação de um **Operator**
+-**DAG ou Job (trabalho)**: Conjunto de tarefas
+- **Operators (operadores)** são os blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline
 
-Os **Operators (operadores**) são os blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline
+[![Um deploy básico do Apache Airflow](./assets/airflowDiagram.webp)](https://www.alura.com.br/artigos/executores-airflow-tipos-funcoes)
+######<center>Diagrama do Airflow</center>
 
-[![Um deploy básico do Apache Airflow](./assets/basicAirflowDeploy.png)](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html)
-######<center>Deploy básico no Airflow</center>
+O Airflow possui 4 componentes principais que devem estar em execução para que ele funcione corretamente:
+
+- **Web Server**: Servidor feito em Flask, por onde é acessado sua interface. Permite inspecionar, acionar e acompanhar o comportamento dos DAGs e suas tarefas
+- **Pasta de arquivos DAG**: armazena os arquivos DAGs criados. Ela é lida pelo agendador e executor
+- **Scheduler (agendador)**: Responsável pelo agendamento da execução das tarefas dos DAGs, então ele determina quais tarefas serão realizadas, onde serão executadas e em qual ordem isso acontecerá para o executor
+- **Banco de Dados**: Serve para armazenar todos os metadados referentes aos DAGs e suas tarefas. Sendo assim, ele registra o horário em que as tarefas foram executadas, quanto tempo cada task levou para ser realizada e o estado de cada uma - se foram executadas com sucesso ou falha, e outras informações relacionadas
+- **Executor**: Mecanismo de execução das tarefas. Ou seja, ele é responsável por descobrir quais recursos serão necessários para executar essas tasks. Possui vários executores, mas somente um é utilizado por vez
+
+Um exemplo de componente situacional seria:
+
+- **Worker**: Processo que executa as tarefas conforme definido pelo executor. Dependendo do executor escolhido, você pode ou não ter workers (trabalhadores) como parte da infraestrutura do Airflow.
 
 <br>
 
