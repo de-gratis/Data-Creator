@@ -10,7 +10,7 @@ A maioria dos pipelines possuem três elementos principais: a origem, uma ou mai
 
 Será necessário definir 
 
-### Apache Airflow
+## Apache Airflow
 
 Ferramenta open source, escrita em Python, criada pelo Airbnb em 2014 e atualmente faz parte da Apache Software Foundation. Trata-se de um orquestrador de fluxos, ou seja, nos permite decidir em qual momento e em quais condições nosso programa irá rodar. É utilizada principalmente para criação, monitoramento e agendamento de pipeline de dados de forma programática
 
@@ -18,7 +18,7 @@ Contém algumas bibliotecas que só funcionam no Linux. Dessa forma, soluções 
 
 - **Task (tarefa)**: Unidade mais básica de um DAG, usada para implementar uma determinada lógica na pipeline, são definidos pela instanciação de um **Operator**
 -**DAG ou Job (trabalho)**: Conjunto de tarefas
-- **Operators (operadores)** são os blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline
+- **Operators (operadores)**: Blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline, sendo classes Python por de baixo dos panos. Quando uma instância de um Operator é criado em um DAG com os parâmetros necessários, essa instânca do Operator passa a ser uma Task 
 
 [![Um deploy básico do Apache Airflow](./assets/airflowDiagram.webp)](https://www.alura.com.br/artigos/executores-airflow-tipos-funcoes)
 ######<center>Diagrama do Airflow</center>
@@ -35,15 +35,40 @@ Um exemplo de componente situacional seria:
 
 - **Worker**: Processo que executa as tarefas conforme definido pelo executor. Dependendo do executor escolhido, você pode ou não ter workers (trabalhadores) como parte da infraestrutura do Airflow.
 
+### Meu Primeiro DAG Airflow
+
+```py linenums="1"
+from airflow.models import DAG
+import pendulum
+from airflow.operators.empty import EmptyOperator
+from airflow.operators.bash import BashOperator
+
+with DAG(
+    'meu_primeiro_dag',
+    start_date=pendulum.today('UTC').add(days=-N),
+    schedule_interval='@daily'
+) as dag:
+    tarefa_1 = EmptyOperator(task_id = 'tarefa_1')
+    tarefa_2 = EmptyOperator(task_id = 'tarefa_2')
+    tarefa_3 = EmptyOperator(task_id = 'tarefa_3')
+    tarefa_4 = BashOperator(
+        task_id = 'cria_pasta',
+        bash_command = 'mkdir -p "home/millenagena/Documents/airflowalura/pasta" '
+    )
+        
+    tarefa_1 >> [tarefa_2, tarefa_3]
+    tarefa_3 >> tarefa_4
+```
+
 <br>
 
-### Azure Data Factory
+## Azure Data Factory
 
 Solução paga para orquestração de data pipelines da Microsoft, estando integrada com seus outros serviços
 
 <br>
 
-### AWS Glue
+## AWS Glue
 
 Integrado também com as soluções da Amazon
 
