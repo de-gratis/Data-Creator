@@ -18,7 +18,13 @@ Contém algumas bibliotecas que só funcionam no Linux. Dessa forma, soluções 
 
 - **Task (tarefa)**: Unidade mais básica de um DAG, usada para implementar uma determinada lógica na pipeline, são definidos pela instanciação de um **Operator**
 -**DAG ou Job (trabalho)**: Conjunto de tarefas
-- **Operators (operadores)**: Blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline, sendo classes Python por de baixo dos panos. Quando uma instância de um Operator é criado em um DAG com os parâmetros necessários, essa instânca do Operator passa a ser uma Task 
+- **Operators (operadores)**: Blocos de construção de um DAG, contendo a lógica de como os dados são processados em uma data pipeline, sendo classes Python por de baixo dos panos. Quando uma instância de um Operator é criado em um DAG com os parâmetros necessários, essa instânca do Operator passa a ser uma Task. Caso nõ exista um operador para seu caso de uso, é possível criar o seu próprio
+
+Um Operador possui 3 características principais:
+
+- Idempotência: independentemente de quantas vezes uma tarefa for executada com os mesmos parâmetros, o resultado final deve ser sempre o mesmo
+- Isolamento: a tarefa não compartilha recursos com outras tarefas de qualquer outro operador
+- Atomicidade: a tarefa é um processo indivisível e bem determinado
 
 [![Um deploy básico do Apache Airflow](./assets/airflowDiagram.webp)](https://www.alura.com.br/artigos/executores-airflow-tipos-funcoes)
 ######<center>Diagrama do Airflow</center>
