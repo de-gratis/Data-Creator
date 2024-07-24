@@ -1,0 +1,903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../pipelines/">
+      
+      
+        <link rel="next" href="../dataWarehouse/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Data Lake - Data Creator Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visao-geral" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Creator Documentation" class="md-header__button md-logo" aria-label="Data Creator Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Creator Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Lake
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Creator Documentation" class="md-nav__button md-logo" aria-label="Data Creator Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data Creator Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Engineer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataEngineer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quem é
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etlElt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    As etapas do processamento dos dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Databricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apacheSpark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Data Lake
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Data Lake
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão Geral
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucoes-do-mercado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soluções do Mercado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluções do Mercado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-bucket-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Bucket S3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-lake-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lake Formation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-data-lake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure Data Lake
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucoes-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soluções Open Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluções Open Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lake-fs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lake FS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadoop-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadoop File System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataWarehouse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Warehouse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataLakehouse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Lakehouse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataMart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Mart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão Geral
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucoes-do-mercado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soluções do Mercado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluções do Mercado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-bucket-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Bucket S3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-lake-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lake Formation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-data-lake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure Data Lake
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucoes-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soluções Open Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluções Open Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lake-fs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lake FS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadoop-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadoop File System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Data Lake</h1>
+
+<h2 id="visao-geral">Visão Geral<a class="headerlink" href="#visao-geral" title="Permanent link">&para;</a></h2>
+<p>Surgidos em 2011</p>
+<p>Não é uma tecnologia, não é um protocolo, não é um framework, é somente um conceito, algo abstrato. Outra coisa é a sua forma de se implementar </p>
+<p>Um repositório único para armazenar todos os formatos de dados, sendo eles estruturados, semi-estruturados e até não-estruturados</p>
+<p>Mais necessário para a finalidade de testar um modelo de ML, descobrir as features do modelo, necessitando dos formatos estarem brutos, não processados</p>
+<p>Seus dados são transformados apenas quando são necessários para análises, por meio de aplicações de rotinas por exemplo, esta ação chamada de esquema para leitura</p>
+<p>Não é necessário fazer a migração dos dados para outro sistema, sendo a sua geração de relatórios mais uma questão <strong>ad hoc</strong></p>
+<p>Pode ser trabalhado com dados em <strong>batch</strong> ou em <strong>streaming</strong></p>
+<ul>
+<li><strong>Batch</strong>: Grande carga de dados que chegam em tantos períodos específicos de tempo, como a cada dia, cada 30 min, etc, sendo ele programado para acontecer com frequência, portanto, um processo em lote que é processado tudo de uma vez, exemplo de uso seria a arquitetura Lambda a seguir</li>
+</ul>
+<p><a href="https://massivetechinterview.blogspot.com/2015/10/lambda-architecture.html"><img alt="Arquitetura Lambda" src="../assets/lambdaArchitecture.png" /></a></p>
+<ul>
+<li><strong>Streaming</strong>: Pequenas porções de dados que chegam em tempo real, sendo processados por funções de MapReduce para organizar os dados embaralhados, exemplo desse uso seria a arquitetura Kappa e também a Lambda</li>
+</ul>
+<p><a href="https://medium.com/@darioajr/understanding-kappa-architecture-and-kafka-empowering-real-time-data-processing-05229a3fe36f"><img alt="Arquitetura Kappa" src="../assets/kappaArchitecture.webp" /></a></p>
+<p>Seu objetivo é entregar rápidos insights, coma menor burocracia e restrição possível</p>
+<p>O principal usuário é o Cientista de Dados, capaz de tratar e processar os dados não estruturados a bel prazer. Logo, fornece principalmente dados para AI e modelos de Machine Learning</p>
+<p>O modelo de schema é definido no momento de leitura, não existindo uma tabela rígida com campos bem determinados</p>
+<p>Deve-se ter muito cuidado para não virar um <a href="">Data Swamp</a>, para isso, boas práticas devem ser adotadas, como sistema de controle de acesso, controle de cotas por zona de gerenciamento, como landing zones, process zones, sendo estas, exemplos de uma arquitetura medallion ou multihop, com os dados brutos entrando na zona Bronze os pré-processados no Prata e o dado final no Ouro, estipulação da periodicidade da ingestão de dados, não armazenar dados inúteis, definição de regras de negócios, diversas fontes de dados com diversas pipelines, com fluidez de dados, garantir os metadados (os dados sobre os dados) e etc</p>
+<p>Basicamente, é necessário ter governança e rotinas de limpeza</p>
+<p>Para evitar uma bagunça total dos datasets, é extremamente importante ter a divisão de zonas dentro do Data Lake, cada uma com um propósito (landing -&gt; process - curated)</p>
+<p><a href="https://dzone.com/articles/data-lake-governance-best-practices"><img alt="Zonas do Data Lake" src="../assets/dataLakeZones.png" /></a></p>
+<p><br></p>
+<h2 id="solucoes-do-mercado">Soluções do Mercado<a class="headerlink" href="#solucoes-do-mercado" title="Permanent link">&para;</a></h2>
+<p>Importante frizar que todas os seguintes exemplos são soluções e serviços em <strong>cloud</strong></p>
+<h3 id="amazon-bucket-s3">Amazon Bucket S3<a class="headerlink" href="#amazon-bucket-s3" title="Permanent link">&para;</a></h3>
+<p>Uma solução para armazenamento de objetos, onde a partir dele, há várias outras soluções integradas para fazer a gestão dos dados</p>
+<p>Escalável, seguro, com um custo viável</p>
+<p>Os Buckets (repositórios) podem ter configurações de região, replicação diferentes, de tags, metadados, etc</p>
+<p><a href="https://www.techmango.net/data-lake-best-practices-for-aws"><img alt="Arquitetura de um Data Lake na AWS com Bucket S3" src="../assets/dataLakeArchitectureAWS.png" /></a></p>
+<p>Soluções integradas para:</p>
+<ul>
+<li>Pesquisa e Catálogo dos dados</li>
+<li>Ingestão de dados, com captação e coleta de dados</li>
+<li>Funções de segurança, como criptografias, permissões</li>
+<li>Interfaces de acesso de usuário</li>
+<li>Serviçoes de analytics</li>
+</ul>
+<p><br></p>
+<h3 id="amazon-lake-formation">Amazon Lake Formation<a class="headerlink" href="#amazon-lake-formation" title="Permanent link">&para;</a></h3>
+<p><a href="https://aws.amazon.com/pt/lake-formation/"><img alt="Arquitetura de um Data Lake na AWS com Lake Formation" src="../assets/lakeFormationAWS.png" /></a></p>
+<p>Solução mais especializada em Data Lakes, sendo um pouco mais completa que o S3, até podendo consumir dados do mesmo, consumindo também de umbanco de dados relacional e não relacionais também</p>
+<p>Pode possuir soluções de crawlers, ETL e preparação de dados integrados, catalogação dos dados, configurações de segurança e controles de acesso</p>
+<p>Podendo também integrar dentro da Amazon Athena (solução de analytics da AWS), Amazon Redshift e Amazon EMR, e etc</p>
+<p>O armazenamento pode até ser feito dentro do Bucket S3, mas sua gestão do Data Lake seria feita dentro do Lake Formation</p>
+<p><br></p>
+<h3 id="azure-data-lake">Azure Data Lake<a class="headerlink" href="#azure-data-lake" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.xenonstack.com/insights/azure-data-lake"><img alt="Arquitetura de um Data Lake na Azure Data Lake" src="../assets/azureDataLake.webp" /></a></p>
+<p><strong>Data Lake Store</strong> provê soluções de armazenamento para dados estruturados, semi-estruturados e não-estruturados</p>
+<p><strong>Data Lake Analytics</strong> para soluções de analytics (pasme) com ampla gama de linguagens de programação como ferramentas disponíveis, tais como R, Python, C#, T-SQL e .NET</p>
+<p><strong>HDInsight</strong> para processamento distribuído, com um amplo leque de ferramentas também, como Java e Scala</p>
+<p><br></p>
+<h3 id="google-cloud-storage">Google Cloud Storage<a class="headerlink" href="#google-cloud-storage" title="Permanent link">&para;</a></h3>
+<p><a href="https://cloud.google.com/blog/topics/developers-practitioners/architect-your-data-lake-google-cloud-data-fusion-and-composer"><img alt="Arquitetura de um Data Lake na Google Cloud" src="../assets/googleCloudDataLake.png" /></a></p>
+<p>Possui serviço de armazenamento, serviços de pipelines com GC Fusion, Big Query para analytics, orquestrações com o Cloud Composer, monitoramento com Logging e Cloud Data Catalog para catalogação dos dados (pasme)</p>
+<p><a href="https://cloud.google.com/architecture/build-a-data-lake-on-gcp?hl=pt-br"><img alt="Arquitetura dos serviços da Google Cloud" src="../assets/googleCloudServicesArchitecture.svg" /></a></p>
+<blockquote>
+<p>Geralmente os dados de sensores são não estruturados ou semi-estruturados, por se tratarem de JSON</p>
+</blockquote>
+<p>Dados gerados <strong>on-premise</strong></p>
+<ul>
+<li>
+<p><strong>Cloud</strong>: Os serviços estão além do seu computador/servidor local, estão na nuvem, sendo gerenciados ou armazenados em um outro local de talvez uma outra empresa, sendo seu custo a exemplo de hardwares, segurança e backups diminuídos pois essa bronca está com a fornecedora da nuvem, com você pagando somente com o que consome</p>
+</li>
+<li>
+<p><strong>On-premise</strong>: São os sistemas, servidores internos de uma empresa, implantações internas da TI que gerenciam toda a infraestrutura, é o local. Por exemplo, você compraria o hardware do servidor e faria a manutenção dele, onde também configuraria e atualizaria os sistemas operacionais nos quais seu software é executado, além de instalar e atualizar todos os complementos e plug-ins necessários, gastando também com parte elétrica e refrigeração, sendo sua implementação e gerenciamento de infraestrutura um tanto quanto complexos</p>
+</li>
+<li>
+<p><strong>SaaS Software as a Service</strong>: Todas as responsabilidades do de cima, sendo um software como o nome sugere, passam a ser do prestador do serviço de nuvem, segurança, confidencialidade, manutenção, etc</p>
+</li>
+</ul>
+<!-- Mais em: https://aws.amazon.com/pt/compare/the-difference-between-saas-and-on-premises/ -->
+
+<p>O GCP possui também serviços para dados em streaming, batch, gerenciamento do Data Lake por linha de comando com o gsutil, assim como data mining, machine learning, etc, tudo integrado ao seu sistema de armazenamento</p>
+<p><br></p>
+<h2 id="solucoes-open-source">Soluções Open Source<a class="headerlink" href="#solucoes-open-source" title="Permanent link">&para;</a></h2>
+<p>Soluções que podem ser implementadas em seu ambiente on-premise gastando muito menos do que gastaria com uma AWS da vida por causa de suas assinaturas e planos</p>
+<h3 id="minio">Minio<a class="headerlink" href="#minio" title="Permanent link">&para;</a></h3>
+<p>Implementa o protocolo S3 da AWS, podendo ser orquestrado também com Kubernetes</p>
+<p>Solução excelente para cloud híbrida</p>
+<p><br></p>
+<h3 id="lake-fs">Lake FS<a class="headerlink" href="#lake-fs" title="Permanent link">&para;</a></h3>
+<p>Pode ser integrado também com diversas outras soluções e protocolos</p>
+<p>Faz a gestão do versionamento do Data Lake a nível de código</p>
+<p><br></p>
+<h3 id="hadoop-file-system">Hadoop File System<a class="headerlink" href="#hadoop-file-system" title="Permanent link">&para;</a></h3>
+<p>Famoso HDFS</p>
+<p>Não recomendável usar somente ele pois perde soluções como sistema de controle de acesso, controle de cotas por zona, etc</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
